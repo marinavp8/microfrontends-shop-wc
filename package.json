@@ -1,0 +1,18 @@
+{
+  "name": "shop-wc",
+  "private": true,
+  "type": "module",
+  "workspaces": ["services/*"],
+  "scripts": {
+    "infra:up": "docker compose -f infra/docker-compose.yml up -d",
+    "seed": "node infra/seed/init-schemas.mjs && node infra/seed/seed.mjs",
+    "api:catalog": "npm -w services/catalog-api run dev",
+    "api:cart": "npm -w services/cart-api run dev",
+    "api:content": "npm -w services/content-api run dev",
+    "dev:api": "concurrently npm:api:catalog npm:api:cart npm:api:content",
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": { "@lit/task": "^1.0.1", "lit": "^3.2.0", "mongodb": "^6.8.0" },
+  "devDependencies": { "concurrently": "^9.0.0", "vite": "^6.0.0" }
+}

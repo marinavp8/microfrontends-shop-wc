@@ -1,0 +1,7 @@
+{
+  "name": "@shop/cart-api",
+  "private": true,
+  "type": "module",
+  "scripts": { "dev": "node --watch src/index.mjs" },
+  "dependencies": { "cors": "^2.8.5", "express": "^4.19.2", "mongodb": "^6.8.0" }
+}
